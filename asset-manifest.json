@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/eth-front/static/css/main.3f0d4676.chunk.css",
+    "main.js": "/eth-front/static/js/main.ba5ef904.chunk.js",
+    "main.js.map": "/eth-front/static/js/main.ba5ef904.chunk.js.map",
+    "runtime-main.js": "/eth-front/static/js/runtime-main.ee7c6b6c.js",
+    "runtime-main.js.map": "/eth-front/static/js/runtime-main.ee7c6b6c.js.map",
+    "static/css/2.b72b1a0e.chunk.css": "/eth-front/static/css/2.b72b1a0e.chunk.css",
+    "static/js/2.8bf9705d.chunk.js": "/eth-front/static/js/2.8bf9705d.chunk.js",
+    "static/js/2.8bf9705d.chunk.js.map": "/eth-front/static/js/2.8bf9705d.chunk.js.map",
+    "static/js/3.131c4f0e.chunk.js": "/eth-front/static/js/3.131c4f0e.chunk.js",
+    "static/js/3.131c4f0e.chunk.js.map": "/eth-front/static/js/3.131c4f0e.chunk.js.map",
+    "index.html": "/eth-front/index.html",
+    "static/css/2.b72b1a0e.chunk.css.map": "/eth-front/static/css/2.b72b1a0e.chunk.css.map",
+    "static/css/main.3f0d4676.chunk.css.map": "/eth-front/static/css/main.3f0d4676.chunk.css.map",
+    "static/js/2.8bf9705d.chunk.js.LICENSE.txt": "/eth-front/static/js/2.8bf9705d.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ee7c6b6c.js",
+    "static/css/2.b72b1a0e.chunk.css",
+    "static/js/2.8bf9705d.chunk.js",
+    "static/css/main.3f0d4676.chunk.css",
+    "static/js/main.ba5ef904.chunk.js"
+  ]
+}
