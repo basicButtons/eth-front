@@ -1,0 +1,15 @@
+.wrapper{
+    position: relative;
+    width: 100vmax;
+    height: 95vmin;
+}
+.inner{
+    position: absolute;
+    width: 30%;
+    height: 20%;
+    top:-10%;
+    bottom: 0;
+    left: -5%;
+    right: 0;
+    margin: auto;
+}
