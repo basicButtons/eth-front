@@ -3,7 +3,6 @@ import Web3 from "web3";
 import test from "../../contracts/test.json";
 import "./index.css"
 import data from "../Login/data.json"
-import headImg from './img/blockchain.png'
 
 export default class Home extends Component {
     constructor(props){
@@ -60,7 +59,7 @@ export default class Home extends Component {
         }
     }
 
-
+    
     changeProvider8545 = async function() {
         try {
             this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
@@ -68,7 +67,6 @@ export default class Home extends Component {
             const accounts = await web3.eth.getAccounts();
             console.log(accounts);
             document.getElementById("ProviderNow").innerHTML = 8545;
-            this.start();
         } catch (error) {
             console.log(error);
         }
@@ -81,7 +79,6 @@ export default class Home extends Component {
             const accounts = await web3.eth.getAccounts();
             console.log(accounts);
             document.getElementById("ProviderNow").innerHTML = 9545;
-            this.start();
         } catch (error) {
             console.log(error);
         }
@@ -204,107 +201,77 @@ export default class Home extends Component {
         this.start()
         return (
             <div>
-                <aside className="sidebar">
-                    <div className="avatar">
-                        <img src={headImg}/>
-                    </div>
-                    <nav className="nav">
-                        <a href="#initiate">Initiate Corporation</a>
-                        <a href="#query">Query Corporation Data</a>
-                        <a href="#transfer_quota">Transfer Quota</a>
-                        <a href="#transfer_cers">Transfer CERs</a>
-                    </nav>
-                </aside>
+                <h1>Green Chain — Example Truffle Dapp</h1>
+                <p id='ProviderNow'> </p>
+                <button onClick={this.changeProvider8545()}> Port 8545 </button>
+                <button onClick={this.changeProvider9545()}> Port 9545 </button>
 
-                <main>
-                    <section id='headline'>
-                        <h1>Green Chain — Example Truffle Dapp</h1>
-                    </section>
+                <h1>Initiate Corporation</h1>
 
-                    <section id='provide'>
-                        <div className='block'>
-                            <h2>Change Provider</h2>
-                            <p id='ProviderNow'></p>
-                            <button onClick={this.changeProvider8548}> Port 8545 </button>
-                            <button onClick={this.changeProvider9545}> Port 9545 </button>
-                        </div>
-                    </section>
+                <p> 地址 </p>
+                <input type="address" id="Addr" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+                <p> 信息 </p>
+                <input type="string" id="Info" placeholder="e.g. info" />
+                <p> 类型 </p>
+                <input type="bool" id="Type" placeholder="e.g. true" />
+                <button onClick={this.initiateCorp_()}> 记录公司 </button>
+                <p> -------------------------------------------- </p>
 
-                    <section id="initiate">
-                        <div className="block">
-                            <h2>Initiate Corporation</h2>
-                            <p className="p1"> 地址 </p>
-                            <input type="address" id="Addr" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
-                            <p className="p1"> 信息 </p>
-                            <input type="string" id="Info" placeholder="e.g. info" />
-                            <p className="p1"> 类型 </p>
-                            <input type="bool" id="Type" placeholder="e.g. true" />
-                            <p></p>
-                            <button onClick={this.initiateCorp_}> 记录公司 </button>
-                        </div>
-                    </section>
+                <h1>Query Corporation Data</h1>
 
-                    <section id="query">
-                        <div className="block">
-                            <h2>Query Corporation Data</h2>
-                            <p className="p1"> 地址 </p>
-                            <input type="address" id="QueryAddr" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
-                            <p id="QueryCorpAddr"> </p>
-                            <p id="QueryCorpInfo"> </p>
-                            <p id="QueryCorpCERs"> </p>
-                            <p id="QueryCorpQuota"> </p>
-                            <p id="QueryCorpMoney"> </p>
-                            <p id="QueryCorpType"> </p>
-                            <button onClick={this.queryCorp_}> 查询信息 </button>
-                        </div>
-                    </section>
+                <p> 地址 </p>
+                <input type="address" id="QueryAddr" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+                <p id="QueryCorpAddr"> </p>
+                <p id="QueryCorpInfo"> </p>
+                <p id="QueryCorpCERs"> </p>
+                <p id="QueryCorpQuota"> </p>
+                <p id="QueryCorpMoney"> </p>
+                <p id="QueryCorpType"> </p>
 
-                    {/* <section id="transfer_quota">
-                        <div className="block">
-                            <h2> Transfer Quota </h2>
-                            <input type="address" id="QuotaFromCorp" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" /><p></p>
-                            <input type="address" id="QuotaToCorp" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" /><p></p>
-                            <input type="int" id="Quota" placeholder="e.g. 10" /><p></p>
-                            <input type="int" id="Money0" placeholder="e.g. 10" /><p></p>
-                            <button onClick={this.transferQuota_()}> Quota 转账 </button>
-                        </div>
-                    </section>
+                <button onClick={this.queryCorp_()}> 查询信息 </button>
 
-                    <section id="transfer_cers">
-                        <div className="block">
-                            <h2> Transfer CERs </h2>
-                            <input type="address" id="CERsFromCorp" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" /><p></p>
-                            <input type="address" id="CERsToCorp" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" /><p></p>
-                            <input type="int" id="CERs" placeholder="e.g. 10" /><p></p>
-                            <input type="int" id="Money1" placeholder="e.g. 10" /><p></p>
-                            <button onClick={this.transferQuota_()}> CERs 转账 </button>
-                        </div>
-                    </section> */}
+                { /**<p> -------------------------------------------- </p>
 
-                    <section id='init_trade_quest'>
-                        <div className='block'>
-                            <h1> Initiate Trade Quest </h1>
-                            <input type="address" id="TradeQuestToAddr" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
-                            <button onClick={this.initTradeQuest_}> 发出交易请求 </button>
-                        </div>
-                    </section>
+                <h1> Transfer Quota </h1>
 
-                    <section id='query_all_trade_quest'>
-                        <div className='block'>
-                            <h1> Query All Trade Quest </h1>
-                            <button onClick={this.queryTrade_}> 查询发给该账户的交易请求 </button>
-                        </div>
-                    </section>
+                <input type="address" id="QuotaFromCorp" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+                <input type="address" id="QuotaToCorp" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+                <input type="int" id="Quota" placeholder="e.g. 10" />
+                <input type="int" id="Money0" placeholder="e.g. 10" />
 
-                    <section id='reply_trade_quest'>
-                        <div className='block'>
-                            <h1> Reply Trade Quest </h1>
-                            <input type="address" id="ReplyToAddr" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
-                            <button onClick={this.replyTradeQuest_}> 回应交易请求 </button>
-                        </div>
-                    </section>
+                <button onClick="App.transferQuota_()"> Quota 转账 </button>
 
-                </main>
+                <p> -------------------------------------------- </p>
+
+                <h1> Transfer CERs </h1>
+
+                <input type="address" id="CERsFromCorp" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+                <input type="address" id="CERsToCorp" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+                <input type="int" id="CERs" placeholder="e.g. 10" />
+                <input type="int" id="Money1" placeholder="e.g. 10" />
+
+                <button onClick="App.transferQuota_()"> CERs 转账 </button> */ }
+
+                <p> -------------------------------------------- </p>
+
+                <h1> Initiate Trade Quest </h1>
+
+                <input type="address" id="TradeQuestToAddr" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+                <button onClick={this.initTradeQuest_()}> 发出交易请求 </button>
+
+                <p> -------------------------------------------- </p>
+
+                <h1> Query All Trade Quest </h1>
+
+                <button onClick={this.queryTrade_()}> 查询发给该账户的交易请求 </button>
+
+                <p> -------------------------------------------- </p>
+
+                <h1> Reply Trade Quest </h1>
+
+                <input type="address" id="ReplyToAddr" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+                <button onClick={this.replyTradeQuest_()}> 回应交易请求 </button>
+
             </div>
         )
     }

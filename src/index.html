@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Green Chain | Truffle Webpack Demo w/ Frontend</title>
+  </head>
+  <style>
+    input {
+      display: block;
+      margin-bottom: 12px;
+    }
+  </style>
+  <body>
+    <h1>Green Chain — Example Truffle Dapp</h1>
+    <p id='ProviderNow'> </p>
+    <button onclick="App.changeProvider8545()"> Port 8545 </button>
+    <button onclick="App.changeProvider9545()"> Port 9545 </button>
+
+    <h1>Initiate Corporation</h1>
+
+    <p> 地址 </p>
+    <input type="address" id="Addr" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+    <p> 信息 </p>
+    <input type="string" id="Info" placeholder="e.g. info" />
+    <p> 类型 </p>
+    <input type="bool" id="Type" placeholder="e.g. true" />
+    <button onclick="App.initiateCorp_()"> 记录公司 </button>
+    <p> -------------------------------------------- </p>
+
+    <h1>Query Corporation Data</h1>
+
+    <p> 地址 </p>
+    <input type="address" id="QueryAddr" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+    <p id="QueryCorpAddr"> </p>
+    <p id="QueryCorpInfo"> </p>
+    <p id="QueryCorpCERs"> </p>
+    <p id="QueryCorpQuota"> </p>
+    <p id="QueryCorpMoney"> </p>
+    <p id="QueryCorpType"> </p>
+
+    <button onclick="App.queryCorp_()"> 查询信息 </button>
+
+    <!-- <p> -------------------------------------------- </p>
+
+    <h1> Transfer Quota </h1>
+
+    <input type="address" id="QuotaFromCorp" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+    <input type="address" id="QuotaToCorp" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+    <input type="int" id="Quota" placeholder="e.g. 10" />
+    <input type="int" id="Money0" placeholder="e.g. 10" />
+
+    <button onclick="App.transferQuota_()"> Quota 转账 </button>
+
+    <p> -------------------------------------------- </p>
+
+    <h1> Transfer CERs </h1>
+
+    <input type="address" id="CERsFromCorp" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+    <input type="address" id="CERsToCorp" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+    <input type="int" id="CERs" placeholder="e.g. 10" />
+    <input type="int" id="Money1" placeholder="e.g. 10" />
+
+    <button onclick="App.transferQuota_()"> CERs 转账 </button> -->
+
+    <p> -------------------------------------------- </p>
+
+    <h1> Initiate Trade Quest </h1>
+
+    <input type="address" id="TradeQuestToAddr" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+    <button onclick="App.initTradeQuest_()"> 发出交易请求 </button>
+
+    <p> -------------------------------------------- </p>
+
+    <h1> Query All Trade Quest </h1>
+
+    <button onclick="App.queryTrade_()"> 查询发给该账户的交易请求 </button>
+
+    <p> -------------------------------------------- </p>
+
+    <h1> Reply Trade Quest </h1>
+
+    <input type="address" id="ReplyToAddr" placeholder="e.g. 0x18E31dC556026B8f45793D93b4e2383e4dD1Cb74" />
+    <button onclick="App.replyTradeQuest_()"> 回应交易请求 </button>
+
+    <script src="index.js"></script>
+
+  </body>
+</html>

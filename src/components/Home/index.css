@@ -1,4 +1,332 @@
-input {
+/* - 全局 - */
+html, body, p,
+h1, h2, h3, h4, h5, h6{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    color: #353535;
+    text-align: center;
+    font: 16px/1.5 'Microsoft Yahei', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+}
+
+@media screen and (max-width: 500px){
+    html[resize] body{
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 1930px){
+    html[resize] body{
+        font-size: 18px;
+    }
+}
+
+*, *:before, *:after{
+    box-sizing: border-box;
+}
+
+/* - 侧边栏 - */
+.sidebar{
+    top: 0;
+    left: 0;
+    bottom: 0;
+    color: #fff;
+    width: 250px;
+    position: fixed;
+    overflow: hidden;
+    overflow-y: auto;
+    background: url(img/aside.jpg) no-repeat;
+    background-size: cover;
+}
+
+/* - 头图 - */
+.sidebar .avatar{
+    width: 160px;
+    height: 160px;
+    margin: 2em auto;
+    background: #fff;
+    border-radius: 100%;
+    border: #fff 5px solid;
+    transition: transform 0.5s;
+}
+.sidebar .avatar:hover{
+    transform: rotate(1turn);
+}
+.sidebar .avatar img{
+    border-radius: 100%;
+}
+
+/* - 侧边栏导航 - */
+.sidebar .nav{
+    margin: 0;
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+}
+.sidebar .nav a{
+    color: #fff;
+    padding: 1em;
     display: block;
-    margin-bottom: 12px;
+    text-align: center;
+    transition: background .3s, box-shadow .3s;
+}
+.sidebar .nav a:hover{
+    background: rgba(0, 0, 0, .2);
+}
+
+main{
+    margin-left: 250px;
+}
+
+@media screen and (max-width: 900px) {
+    .sidebar {
+        width: inherit;
+        position: relative;
+    }
+    .sidebar .nav{
+        background: #f8bd24;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .sidebar .nav a:hover{
+        background: none;
+        box-shadow: 0 -3px 0 #fff inset;
+    }
+    main{
+        margin-left: 0;
+    }
+}
+
+@media print{
+    .sidebar{
+        display: none;
+    }
+    main{
+        margin-left: 0;
+    }
+}
+
+/* - 滚动条 - */
+::-webkit-scrollbar{
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-track:hover{
+    border-radius: 5px;
+    background: rgba(0, 0, 0, .05);
+}
+
+body::-webkit-scrollbar-thumb{
+    box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1), inset 0 -1px 0 rgba(0, 0, 0, .07);
+}
+
+body::-webkit-scrollbar-track:hover{
+    border-radius: 0;
+    box-shadow: inset 1px 0 0 rgba(0, 0, 0, .1);
+}
+
+/* - 容器 - */
+.block{
+    margin: 0 auto;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    padding: 0 1.25em;
+    box-sizing: content-box;
+}
+
+.block.min{
+    max-width: 800px;
+}
+.block.mid{
+    max-width: 1000px;
+}
+.block.max{
+    max-width: 1600px;
+}
+
+.block.full{
+    max-width: 100%;
+}
+.block.thin{
+    padding: 0 .75em;
+}
+.block.thick{
+    padding: 0 1.5em;
+}
+.block.clear{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.clearfix:after{
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.overflow{
+    overflow: auto;
+}
+
+/* - 元素 - */
+h1{
+    font-size: 2em;
+}
+
+h1, h2, h3, h4, h5, h6{
+    margin-bottom: 1rem;
+}
+
+h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:last-child, p:last-child{
+    margin-bottom: 0;
+}
+
+.p1 {
+    line-height: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+a{
+    color: #3498db;
+    text-decoration: none;
+}
+
+a:hover{
+    color: #ffc670;
+}
+
+abbr[title]{
+    cursor: help;
+    text-decoration: none;
+    border-bottom: 1px dotted;
+}
+
+em, mark, kbd{
+    padding: 0 .5em;
+    border-radius: .5em;
+    display: inline-block;
+}
+
+em{
+    color: #fff;
+    font-style: normal;
+    background: #3498db;
+}
+
+kbd{
+    color: #fff;
+    font-size: 90%;
+    background: #333;
+    font-family: 'Consolas', 'Courier New', monospace, "微软雅黑";
+}
+
+audio{
+    vertical-align: middle;
+}
+
+img, svg, video{
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+input {
+    width: 400px;
+    height: 42px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0 15px;
+    background: #2d2d2d; /* browsers that don't support rgba */
+    background: rgba(45,45,45,.15);
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #000000; /* browsers that don't support rgba */
+    border: 1px solid rgba(5, 5, 5, 0.15);
+    -moz-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
+    -webkit-box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
+    box-shadow: 0 2px 3px 0 rgba(0,0,0,.1) inset;
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    text-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+button {
+    cursor: pointer;
+    width: 200px;
+    height: 44px;
+    margin-top: 25px;
+    padding: 0;
+    background: #ef4300;
+    -moz-border-radius: 6px;
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+    border: 1px solid #ff730e;
+    -moz-box-shadow:
+        0 15px 30px 0 rgba(255,255,255,.25) inset,
+        0 2px 7px 0 rgba(0,0,0,.2);
+    -webkit-box-shadow:
+        0 15px 30px 0 rgba(255,255,255,.25) inset,
+        0 2px 7px 0 rgba(0,0,0,.2);
+    box-shadow:
+        0 15px 30px 0 rgba(255,255,255,.25) inset,
+        0 2px 7px 0 rgba(0,0,0,.2);
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0,0,0,.1);
+}
+
+/* - 正文 - */
+main section{
+    padding: 5em 0;
+    position: relative;
+}
+
+@media screen and (max-width: 900px) {
+    main section{
+        padding: 3em 0;
+    }
+}
+
+#headline{ background: url(img/bg1.png) fixed; }
+#provide{ background: url(img/bg1.png) fixed; }
+#initiate{ background: url(img/bg1.png) fixed; }
+#query{ background: url(img/bg1.png) fixed; }
+#transfer_quota{ background: url(img/bg1.png) fixed; }
+#transfer_cers{ background: url(img/bg1.png) fixed; }
+#init_trade_quest{ background: url(img/bg1.png) fixed; }
+#query_all_trade_quest{ background: url(img/bg1.png) fixed; }
+#reply_trade_quest{ background: url(img/bg1.png) fixed; }
+
+.title{
+    margin-bottom: 1em;
+}
+.title:before{
+    float: left;
+    margin-right: .5em;
+    font-family: "FontAwesome";
+}
+
+/* - 页尾 - */
+footer{
+    color: #fff;
+    padding: 1em 0;
+    text-align: center;
+    background: #72655b;
+}
+footer a{
+    color: inherit;
 }
