@@ -40,7 +40,7 @@ export default class Home extends Component {
         this.start()
     }
 
-    start = async function() {
+    start = async () => {
         const { web3 } = this;
 
         try {
@@ -61,7 +61,7 @@ export default class Home extends Component {
     }
 
 
-    changeProvider8545 = async function() {
+    changeProvider8545 = async ()=> {
         try {
             this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
             const { web3 } = this;
@@ -74,7 +74,7 @@ export default class Home extends Component {
         }
     }
 
-    changeProvider9545= async function() {
+    changeProvider9545= async ()=> {
         try {
             this.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:9545"));
             const { web3 } = this;
@@ -87,7 +87,7 @@ export default class Home extends Component {
         }
     }
 
-    initiateCorp_=  async function() {
+    initiateCorp_=  async ()=> {
         const { web3 } = this;
         const accounts = await web3.eth.getAccounts();
         console.log(accounts);
@@ -102,7 +102,7 @@ export default class Home extends Component {
 
     }
 
-    queryCorp_= async function() {
+    queryCorp_= async ()=> {
         const { web3 } = this;
         const accounts = await web3.eth.getAccounts();
         console.log(accounts);
@@ -124,7 +124,7 @@ export default class Home extends Component {
         );
     }
 
-    transferQuota_=  async function() {
+    transferQuota_=  async ()=> {
         const { web3 } = this;
         const accounts = await web3.eth.getAccounts();
         console.log(accounts);
@@ -139,7 +139,7 @@ export default class Home extends Component {
         await transferQuota(fromADDR, toADDR, tmpCERs, tmpMoney).send({ from: this.account, gas: 3000000});
     }
 
-    transferCERs_= async function() {
+    transferCERs_= async ()=> {
         const { web3 } = this;
         const accounts = await web3.eth.getAccounts();
         console.log(accounts);
@@ -154,7 +154,7 @@ export default class Home extends Component {
         await transferCERs(fromADDR, toADDR, tmpCERs, tmpMoney).send({ from: this.account, gas: 3000000});
     }
 
-    initTradeQuest_= async function() {
+    initTradeQuest_= async ()=> {
         const { web3 } = this;
         const accounts = await web3.eth.getAccounts();
         console.log(accounts);
@@ -165,7 +165,7 @@ export default class Home extends Component {
         await initTradeQuest(toCorpAddr, true, 10, 10).send({ from: this.account, gas: 3000000});
     }
 
-    queryTrade_= async function() {
+    queryTrade_= async ()=> {
         const { web3 } = this;
         const accounts = await web3.eth.getAccounts();
         console.log(accounts);
@@ -188,7 +188,7 @@ export default class Home extends Component {
         );
     }
 
-    replyTradeQuest_= async function() {
+    replyTradeQuest_= async ()=> {
         const { web3 } = this;
         const accounts = await web3.eth.getAccounts();
         console.log(accounts);
